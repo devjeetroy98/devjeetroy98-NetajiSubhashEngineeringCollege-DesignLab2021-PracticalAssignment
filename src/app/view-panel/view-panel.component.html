@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="container">
+        <h1 style="padding: 20px;">Financial Update of Apple Eye India Pvt. Ltd.</h1>
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                          
+                            <ng-container matColumnDef="check">
+                                <mat-header-cell *matHeaderCellDef><mat-checkbox class="example-margin" (click)="alterCheck()"></mat-checkbox></mat-header-cell> 
+                                <mat-cell *matCellDef="let element"><mat-checkbox class="example-margin" [(checked)]="ichecked" [value]="element.id" (change)="changeState(element.id)"></mat-checkbox></mat-cell> 
+                            </ng-container>
+
+                            <ng-container matColumnDef="year">
+                              <mat-header-cell *matHeaderCellDef> Year </mat-header-cell> 
+                              <mat-cell *matCellDef="let element"> {{element.Year}} </mat-cell> 
+                            </ng-container>
+                          
+                            
+                            <ng-container matColumnDef="aggregation">
+                                <mat-header-cell *matHeaderCellDef> Industry Aggregation </mat-header-cell> 
+                                <mat-cell *matCellDef="let element"> {{element.Industry_aggregation_NZSIOC}} </mat-cell> 
+                            </ng-container>
+                          
+                           
+                            <ng-container matColumnDef="variable_category">
+                                <mat-header-cell *matHeaderCellDef> Variable Category </mat-header-cell> 
+                                <mat-cell *matCellDef="let element"> {{element.Variable_category}} </mat-cell> 
+                            </ng-container>
+                          
+                            
+                            <ng-container matColumnDef="variable_code">
+                                <mat-header-cell *matHeaderCellDef> Variable Code </mat-header-cell> 
+                                <mat-cell *matCellDef="let element"> {{element.Variable_code}} </mat-cell> 
+                            </ng-container> 
+
+                            
+                            <ng-container matColumnDef="value">
+                                <mat-header-cell *matHeaderCellDef> Value </mat-header-cell> 
+                                <mat-cell *matCellDef="let element"> {{element.Value}} </mat-cell> 
+                            </ng-container> 
+                          
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> 
+                            <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                          </table>
+                          <mat-paginator #paginator [length]="temp.length"
+                                [pageSize]="20"
+                                [pageSizeOptions]="[20, 50]">
+                            </mat-paginator>
+                          <br>
+    </div>
+</div>
